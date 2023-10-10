@@ -1,4 +1,4 @@
-package com.example.kotlin.TMBDapplication.data.network.model
+package com.example.kotlin.TMBDapplication.domain.model
 
 data class MovieResponse(
     val page: Int,
