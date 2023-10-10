@@ -1,3 +1,10 @@
+/**
+ * This file contains the definition of the PopularMoviesAdapter class, which is a RecyclerView Adapter
+ * responsible for populating a list of popular movie items in the user interface.
+ *
+ * @file PopularMoviesAdapter.kt
+ */
+
 package com.example.kotlin.TMBDapplication.framework.adapters
 
 import android.content.Context
@@ -8,34 +15,58 @@ import com.example.kotlin.TMBDapplication.databinding.MovieCardLayoutBinding
 import com.example.kotlin.TMBDapplication.domain.model.Result
 import com.example.kotlin.TMBDapplication.framework.adapters.viewholders.PopularMoviesViewHolder
 
-class PopularMoviesAdapter: RecyclerView.Adapter<PopularMoviesViewHolder>() {
+/**
+ * The `PopularMoviesAdapter` class is a RecyclerView Adapter designed for populating a list of
+ * popular movie items within the user interface.
+ */
+class PopularMoviesAdapter : RecyclerView.Adapter<PopularMoviesViewHolder>() {
 
-    // Declaración de una lista de datos de Pokémon
+    // Declaration of a list of movie data
     var data: ArrayList<Result> = ArrayList()
 
-    // Declaración de una propiedad para el contexto de la aplicación
+    // Declaration of a property for the application context
     lateinit var context: Context
 
-    // Constructor personalizado para inicializar la lista de datos y el contexto
-    fun PopularMoviesAdapter(basicData: List<Result>, context: Context){
+    /**
+     * Custom constructor for initializing the list of movie data and the application context.
+     *
+     * @param basicData The list of movie data.
+     * @param context The context of the application.
+     */
+    fun PopularMoviesAdapter(basicData: List<Result>, context: Context) {
         this.data = basicData as ArrayList<Result>
         this.context = context
     }
 
-    // Enlaza los datos de un elemento de la lista con una vista de fila (ViewHolder)
+    /**
+     * Binds the data of a list item to a row view (ViewHolder).
+     *
+     * @param holder The ViewHolder representing the row.
+     * @param position The position of the item in the list.
+     */
     override fun onBindViewHolder(holder: PopularMoviesViewHolder, position: Int) {
         val item = data[position]
         holder.bind(item, context)
     }
 
-    // Crea un nuevo ViewHolder que representa un elemento de la lista
+    /**
+     * Creates a new ViewHolder that represents an item in the list.
+     *
+     * @param parent The parent view group in which the item will be displayed.
+     * @param viewType The type of view.
+     * @return A new `PopularMoviesViewHolder` instance.
+     */
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PopularMoviesViewHolder {
-        // Infla el diseño de la vista de fila y lo asocia con un objeto de vinculación (binding)
+        // Inflate the row view layout and associate it with a binding object
         val binding = MovieCardLayoutBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return PopularMoviesViewHolder(binding)
     }
 
-    // Devuelve la cantidad total de elementos en la lista de datos
+    /**
+     * Returns the total number of items in the data list.
+     *
+     * @return The number of items in the data list.
+     */
     override fun getItemCount(): Int {
         return data.size
     }
