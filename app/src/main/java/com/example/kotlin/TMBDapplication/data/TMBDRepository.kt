@@ -24,7 +24,6 @@ class TMBDRepository {
      *
      * @param page The page number of popular movies to fetch (default is 1).
      * @return A `MovieResponse` object containing a list of popular movies, or `null` if an error occurs.
-     * @throws [NetworkException] in case of a network error.
      */
     suspend fun getPopularMovies(page: Int = 1): MovieResponse? = apiTMBD.getPopularMovies(page)
 }
