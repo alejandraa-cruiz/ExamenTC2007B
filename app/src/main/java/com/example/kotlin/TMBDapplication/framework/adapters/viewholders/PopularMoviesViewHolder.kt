@@ -15,6 +15,7 @@ class PopularMoviesViewHolder(private val binding: MovieCardLayoutBinding) : Rec
 
         fun bind(item: Result, context: Context){
             binding.movieName.text = item.title
+            binding.movieDescription.text = item.overview
             val urlImage = "https://image.tmdb.org/t/p/original${item.poster_path}"
             //Log.d("Salida",urlImage)
             val requestOptions =  RequestOptions()

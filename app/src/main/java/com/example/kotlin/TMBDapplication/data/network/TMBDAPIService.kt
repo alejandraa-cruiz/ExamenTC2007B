@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Query
 
 interface TMBDAPIService {
-    @GET("movie/popular")
+    @GET("movie/popular/")
     suspend fun getPopularMovies(
         @Query("page") page:Int = 1
     ): MovieResponse

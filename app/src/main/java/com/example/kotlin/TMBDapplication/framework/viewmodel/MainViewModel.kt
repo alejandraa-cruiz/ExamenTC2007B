@@ -16,9 +16,11 @@ class MainViewModel: ViewModel(){
     fun getPopularMovies(){
         viewModelScope.launch(Dispatchers.IO) {
             val result: MovieResponse? = PopularMoviesRequirement(1)
-            //Log.d("Salida", result?.count.toString())
-            CoroutineScope(Dispatchers.Main).launch {
-                movieResponseLiveData.postValue(result!!)
+            Log.d("Salida", result.toString())
+            if (result != null){
+                CoroutineScope(Dispatchers.Main).launch {
+                    movieResponseLiveData.postValue(result!!)
+                }
             }
         }
     }
