@@ -1,10 +1,11 @@
 package com.example.kotlin.TMBDapplication.data.network
 
+import com.example.kotlin.TMBDapplication.domain.model.MovieResponse
 import com.example.kotlin.TMBDapplication.domain.model.Result
 
 class TMBDAPIClient {
     private lateinit var api: TMBDAPIService
-    suspend fun getPopularMovies(page:Int = 1): Result?{
+    suspend fun getPopularMovies(page:Int = 1): MovieResponse?{
         api = NetworkModuleDI()
         return try{
             api.getPopularMovies(page)}
